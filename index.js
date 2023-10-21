@@ -107,6 +107,19 @@ function deleteSaveFile() {
     }
 }
 
+function simulate() {
+    file.balance += file.salary;
+    if (file.month < 11) {
+        file.month += 1;
+    } else {
+        file.month = 0;
+        file.year += 1;
+        file.age += 1;
+    }
+    saveGame();
+    updateScreen();
+}
+
 function updateScreen() {
     if (document.getElementsByClassName("date")) {
         let elements = document.getElementsByClassName("date");

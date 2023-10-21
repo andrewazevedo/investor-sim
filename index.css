@@ -67,7 +67,7 @@ body {
     display: inline;
 }
 
-.select-save-section, .save-file-section {
+.select-save-section, .save-file-section, .sim-btn-section {
     text-align: center;
 }
 
@@ -118,4 +118,21 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+}
+
+.sim-btn {
+    text-align: center;
+    color: #DBD4D3;
+    background-color: #344966;
+    border: 3px solid #912F40;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 0;
+    padding: 3px;
+}
+
+.sim-btn:hover {
+    color: #999595;
+    background-color: #18283f;
+    cursor: pointer;
 }

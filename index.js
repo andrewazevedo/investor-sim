@@ -76,6 +76,37 @@ function loadGame() {
     updateScreen();
 }
 
+function deleteSaveFile() {
+    save = Number(localStorage.getItem("saveFile"));
+    if (save === 1) {
+        file1.balance = 10000;
+        file1.salary = 1000;
+        file1.month = 0;
+        file1.year = 2023;
+        file1.age = 18;
+        file1.stocks = [];
+        saveGame();
+    } else if (save === 2) {
+        file2 = {
+            balance: 10000,
+            salary: 1000,
+            month: 0,
+            year: 2023,
+            age: 18
+        }
+        saveGame();
+    } else if (save === 3) {
+        file3 = {
+            balance: 10000,
+            salary: 1000,
+            month: 0,
+            year: 2023,
+            age: 18
+        }
+        saveGame();
+    }
+}
+
 function updateScreen() {
     if (document.getElementsByClassName("date")) {
         let elements = document.getElementsByClassName("date");

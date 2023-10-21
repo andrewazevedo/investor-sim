@@ -89,13 +89,13 @@ body {
     padding: 0;
 }
 
-.select-save-btn, .load-save-btn, .delete-save-btn, .back-btn, .market-btn, .bank-btn, .portfolio-btn {
+.select-save-btn, .load-save-btn, .delete-save-btn, .back-btn, .market-btn, .bank-btn, .portfolio-btn, .stock-btn {
     color: #344966;
     font-size: 50px;
     text-decoration: none;
 }
 
-.select-save-btn:hover, .load-save-btn:hover, .delete-save-btn:hover, .back-btn:hover, .market-btn:hover, .bank-btn:hover, .portfolio-btn:hover {
+.select-save-btn:hover, .load-save-btn:hover, .delete-save-btn:hover, .back-btn:hover, .market-btn:hover, .bank-btn:hover, .portfolio-btn:hover, .stock-btn:hover {
     color: #18283f;
     cursor: pointer;
 }
@@ -113,7 +113,7 @@ body {
     cursor: pointer;
 }
 
-.market-btn, .bank-btn, .portfolio-btn {
+.market-btn, .bank-btn, .portfolio-btn, .stock-btn {
     font-size: 30px;
     text-align: center;
     margin: 0;

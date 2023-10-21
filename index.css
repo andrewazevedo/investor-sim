@@ -1,0 +1,121 @@
+body {
+    background-color: #3A2E39;
+    font-family: impact, fantasy;
+}
+
+.text {
+    color: #912F40;
+    font-size: 25px;
+    margin: 5px;
+    padding: 0;
+}
+.title {
+    color: #912F40;
+    text-align: center;
+    font-size: 70px;
+    padding: 0;
+    margin: 0;
+    text-decoration: underline #DBD4D3;
+}
+
+.title-divider {
+    background-color: #DBD4D3; 
+    height: 5px;
+}
+
+.large-heading {
+    color: #912F40;
+    font-size: 50px;
+    margin: 10px;
+    padding: 0;
+}
+
+.section-header {
+    border: 5px solid #DBD4D3;
+    margin: 10px;
+    padding: 0;
+}
+
+.section-header-list {
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.section-header-item {
+    color: #912F40;
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar {
+    border: 5px solid #DBD4D3;
+    margin: 10px;
+}
+
+.nav-bar-list {
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #344966;
+}
+
+.nav-bar-item {
+    display: inline;
+}
+
+.select-save-section, .save-file-section {
+    text-align: center;
+}
+
+.triple-section {
+    display: flex;
+}
+.triple-section-col {
+    flex: 33.33%;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border: 5px solid #DBD4D3;
+}
+
+.triple-section-list {
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.select-save-btn, .load-save-btn, .delete-save-btn, .back-btn, .market-btn, .bank-btn, .portfolio-btn {
+    color: #344966;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.select-save-btn:hover, .load-save-btn:hover, .delete-save-btn:hover, .back-btn:hover, .market-btn:hover, .bank-btn:hover, .portfolio-btn:hover {
+    color: #18283f;
+    cursor: pointer;
+}
+
+.nav-btn {
+    color: #DBD4D3;
+    text-decoration: none;
+    font-size: 25px;
+    text-align: center;
+    padding: 15px 15px;
+}
+
+.nav-btn:hover {
+    color: #999595;
+    cursor: pointer;
+}
+
+.market-btn, .bank-btn, .portfolio-btn {
+    font-size: 30px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}

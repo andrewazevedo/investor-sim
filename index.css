@@ -25,7 +25,16 @@ body {
 
 .large-heading {
     color: #912F40;
+    text-align: center;
     font-size: 50px;
+    margin: 10px;
+    padding: 0;
+}
+
+.medium-heading {
+    color: #912F40;
+    text-align: center;
+    font-size: 30px;
     margin: 10px;
     padding: 0;
 }
@@ -63,17 +72,18 @@ body {
     background-color: #344966;
 }
 
-.nav-bar-item {
+.nav-bar-item, .stock-amount, .stock-amount-btn {
     display: inline;
 }
 
-.select-save-section, .save-file-section, .sim-btn-section {
+.select-save-section, .save-file-section, .sim-btn-section, .set-stock-amount {
     text-align: center;
 }
 
 .triple-section {
     display: flex;
 }
+
 .triple-section-col {
     flex: 33.33%;
     padding: 10px;
@@ -135,4 +145,20 @@ body {
     color: #999595;
     background-color: #18283f;
     cursor: pointer;
+}
+
+.stock-amount {
+    font-size: 30px;
+}
+
+.minus-stock-btn, .add-stock-btn {
+    background-color: #DBD4D3;
+    display: inline-block;
+    text-align: center;
+    width: 40px;
+    font-size: 30px;
+}
+
+.minus-stock-btn:hover, .add-stock-btn:hover {
+    background-color: #999595;
 }

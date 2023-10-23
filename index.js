@@ -3,10 +3,15 @@ let saveFile = 0;
 let selectedStock = 0;
 let amount = 0;
 
+let defaultStocks = {
+    stock1: {name: "Stock #1", price: 10, change: "+0"},
+    stock2: {name: "Stock #2", price: 30, change: "+0"},
+    stock3: {name: "Stock #3", price: 1000, change: "+0"}
+}
 let stocks = {
-    stock1: {name: "Stock #1"},
-    stock2: {name: "Stock #2"},
-    stock3: {name: "Stock #3"}
+    stock1: {name: "Stock #1", price: 10},
+    stock2: {name: "Stock #2", price: 30},
+    stock3: {name: "Stock #3", price: 1000}
 }
 
 let defaultFile = {
@@ -15,7 +20,7 @@ let defaultFile = {
     month: 0,
     year: 2023,
     age: 18, 
-    stocks: []
+    stocks: {stock1: 0, stock2: 0, stock3: 0}
 }
 
 let file = {
@@ -24,7 +29,7 @@ let file = {
     month: 0,
     year: 2023,
     age: 18, 
-    stocks: []
+    stocks: {}
 };
 
 function setSaveFile(save) {
@@ -43,6 +48,7 @@ function setSaveFile(save) {
 function saveGame() {
     saveFile = Number(localStorage.getItem("saveFile"));
     localStorage.setItem("selectedStock", selectedStock.toString());
+    localStorage.setItem("stocks", JSON.stringify(stocks));
     if (saveFile === 1) {
         localStorage.setItem("file1", JSON.stringify(file));
     } else if (saveFile === 2) {
@@ -55,6 +61,7 @@ function saveGame() {
 function loadGame() {
     saveFile = Number(localStorage.getItem("saveFile"));
     selectedStock = Number(localStorage.getItem("selectedStock"));
+    stocks = JSON.parse(localStorage.getItem("stocks"));
     if (saveFile === 1) {
         file = JSON.parse(localStorage.getItem("file1"));
     } else if (saveFile === 2) {
@@ -74,6 +81,7 @@ function deleteSaveFile() {
     } else if (save === 3) {
         localStorage.setItem("file3", JSON.stringify(defaultFile));
     }
+    localStorage.setItem("stocks", JSON.stringify(defaultStocks));
 }
 
 function simulate() {
@@ -86,6 +94,7 @@ function simulate() {
         file.year += 1;
         file.age += 1;
     } 
+    changeStockPrice();
     saveGame();
     updateScreen();   
 }
@@ -93,31 +102,31 @@ function simulate() {
 function updateScreen() {
     if (document.getElementsByClassName("date")) {
         let elements = document.getElementsByClassName("date");
-        for (var i = 0; i < elements.length; i++) {
+        for (let i = 0; i < elements.length; i++) {
             elements[i].innerHTML = months[file.month] + " " + file.year;
         }
     }
     if (document.getElementsByClassName("balance")) {
         let elements = document.getElementsByClassName("balance");
-        for (var i = 0; i < elements.length; i++) {
+        for (let i = 0; i < elements.length; i++) {
             elements[i].innerHTML = "Balance: $" + file.balance;
         }
     }
     if (document.getElementsByClassName("age")) {
         let elements = document.getElementsByClassName("age");
-        for (var i = 0; i < elements.length; i++) {
+        for (let i = 0; i < elements.length; i++) {
             elements[i].innerHTML = file.age + " Years Old";
         }
     }
     if (document.getElementsByClassName("salary")) {
         let elements = document.getElementsByClassName("salary");
-        for (var i = 0; i < elements.length; i++) {
+        for (let i = 0; i < elements.length; i++) {
             elements[i].innerHTML = "Monthly Salary: $" + file.salary;
         }
     }
     if (document.getElementsByClassName("stock-title")) {
         let elements = document.getElementsByClassName("stock-title");
-        for (var i = 0; i < elements.length; i++) {
+        for (let i = 0; i < elements.length; i++) {
             if (selectedStock === 1) {
                 elements[i].innerHTML = stocks.stock1.name;
             } else if (selectedStock === 2) {
@@ -127,6 +136,70 @@ function updateScreen() {
             }
              
         }
+    }
+    if (document.getElementsByClassName("owned-stock")) {
+        let elements = document.getElementsByClassName("owned-stock");
+        for (let i = 0; i < elements.length; i++) {
+            if (selectedStock === 1) {
+                elements[i].innerHTML = "Owned: " + file.stocks.stock1;
+            } else if (selectedStock === 2) {
+                elements[i].innerHTML = "Owned: " + file.stocks.stock2;
+            } else if (selectedStock === 3) {
+                elements[i].innerHTML = "Owned: " + file.stocks.stock3;
+            }
+
+        }
+    }
+    if (document.getElementsByClassName("stock-price")) {
+        let elements = document.getElementsByClassName("stock-price") 
+        for (let i = 0; i < elements.length; i++) {
+            if (selectedStock === 1) {
+                elements[i].innerHTML = "Price: " + stocks.stock1.price;
+            } else if (selectedStock === 2) {
+                elements[i].innerHTML = "Price: " + stocks.stock2.price;
+            } else if (selectedStock === 3) {
+                elements[i].innerHTML = "Price: " + stocks.stock3.price;
+            }
+        }
+    }
+    if (document.getElementsByClassName("stock-1-amount")) {
+        let elements = document.getElementsByClassName("stock-1-amount");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = "Stock #1: " + file.stocks.stock1;
+        }
+    }
+    if (document.getElementsByClassName("stock-2-amount")) {
+        let elements = document.getElementsByClassName("stock-2-amount");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = "Stock #2: " + file.stocks.stock2;
+        }
+    }
+    if (document.getElementsByClassName("stock-3-amount")) {
+        let elements = document.getElementsByClassName("stock-3-amount");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = "Stock #3: " + file.stocks.stock3;
+        }
+    }
+    if (document.getElementsByClassName("stock-1-price")) {
+        let elements = document.getElementsByClassName("stock-1-price");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = "Stock #1: $" + stocks.stock1.price + " " + stocks.stock1.change;
+        }
+    }
+    if (document.getElementsByClassName("stock-2-price")) {
+        let elements = document.getElementsByClassName("stock-2-price");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = "Stock #2: $" + stocks.stock2.price + " " + stocks.stock2.change;
+        }
+    }
+    if (document.getElementsByClassName("stock-3-price")) {
+        let elements = document.getElementsByClassName("stock-3-price");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = "Stock #3: $" + stocks.stock3.price + " " + stocks.stock3.change;
+        }
+    }
+    if (document.getElementById("stock-amount")) {
+        document.getElementById("stock-amount").innerHTML = amount;
     }
 }
 
@@ -139,6 +212,94 @@ function setAmount(increment) {
 
 function selectStock(stock) {
     selectedStock = stock;
+    saveGame();
+}
+
+function buyStock() {
+    let selectedStock = JSON.parse(localStorage.getItem("selectedStock"));
+    if (selectedStock === 1) {
+        if (amount * stocks.stock1.price < file.balance) {
+            file.stocks.stock1 += amount;
+            file.balance -= amount * stocks.stock1.price;
+            amount = 0;
+        }
+    } else if (selectedStock === 2) {
+        if(amount * stocks.stock2.price < file.balance) {
+            file.stocks.stock2 += amount;
+            file.balance -= amount * stocks.stock2.price;
+            amount = 0;
+        }
+    } else if (selectedStock === 3) {
+        if(amount * stocks.stock3.price < file.balance) {
+            file.stocks.stock3 += amount;
+            file.balance -= amount * stocks.stock3.price;
+            amount = 0;
+        }
+    }
+    saveGame();
+    updateScreen();
+}
+
+function sellStock() {
+    let selectedStock = JSON.parse(localStorage.getItem("selectedStock"));
+    if (selectedStock === 1) {
+        if (amount <= file.stocks.stock1) {
+            file.stocks.stock1 -= amount;
+            file.balance += amount * stocks.stock1.price;
+            amount = 0;
+        }
+    } else if (selectedStock === 2) {
+        if (amount <= file.stocks.stock2) {
+            file.stocks.stock2 -= amount;
+            file.balance += amount * stocks.stock2.price;
+            amount = 0;
+        }
+    } else if (selectedStock === 3) {
+        if (amount <= file.stocks.stock3) {
+            file.stocks.stock3 -= amount;
+            file.balance += amount * stocks.stock3.price;
+            amount = 0;
+        }
+    }
+    saveGame();
+    updateScreen();
+}
+
+function changeStockPrice() {
+    let priceChange1 = Math.round(Math.random());
+    let priceChange2 = Math.round(Math.random());
+    let priceChange3 = Math.round(Math.random());
+    let priceChangeAmount1 = Math.floor(Math.random() * (10 - 1) + 1);
+    let priceChangeAmount2 = Math.floor(Math.random() * (30 - 1) + 1);
+    let priceChangeAmount3 = Math.floor(Math.random() * (100 - 1) + 1);
+    if (priceChange1 === 1) {
+        stocks.stock1.change = "+" + priceChangeAmount1;
+        stocks.stock1.price += priceChangeAmount1;
+    } else {
+        if (stocks.stock1.price - priceChangeAmount1 > 0) {
+            stocks.stock1.change = "-" + priceChangeAmount1;
+            stocks.stock1.price -= priceChangeAmount1;
+        }
+    }
+    if (priceChange2 === 1) {
+        stocks.stock2.change = "+" + priceChangeAmount2;
+        stocks.stock2.price += priceChangeAmount2;
+    } else {
+        if (stocks.stock2.price - priceChangeAmount2 > 0) {
+            stocks.stock2.change = "-" + priceChangeAmount2;
+            stocks.stock2.price -= priceChangeAmount2;
+        }
+    }
+    if (priceChange3 === 1) {
+        stocks.stock3.change = "+" + priceChangeAmount3;
+        stocks.stock3.price += priceChangeAmount3;
+    } else {
+        if (stocks.stock3.price - priceChangeAmount3 > 0) {
+            stocks.stock3.change = "-" + priceChangeAmount3;
+            stocks.stock3.price -= priceChangeAmount3;
+        }
+    }
+    saveGame();
 }
 
 loadGame();

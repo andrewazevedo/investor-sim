@@ -22,12 +22,18 @@
         <ul class="section-header-list"><p class="text balance">Balance</p></ul>
     </section>
     <main>
-        <h1 class="large-heading">Stock</h1>
+        <h1 class="large-heading stock-title">Stock</h1>
+        <h2 class="medium-heading owned-stock">Owned:</h2>
+        <h2 class="medium-heading stock-price">Price:</h2>
         <h2 class="medium-heading">Amount:</h2>
         <div class="set-stock-amount">
             <button class="minus-stock-btn" onclick="setAmount(-1)">-</button>
             <p class="text" id="stock-amount">0</p>
             <button class="add-stock-btn" onclick="setAmount(1)">+</button>
+        </div>
+        <div class="buy-sell">
+            <button class="sell-btn" onclick="sellStock()">Sell</button>
+            <button class="buy-btn" onclick="buyStock()">Buy</button>
         </div>
     </main>
     <script src="/index.js"></script>

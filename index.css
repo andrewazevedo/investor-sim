@@ -76,7 +76,7 @@ body {
     display: inline;
 }
 
-.select-save-section, .save-file-section, .sim-btn-section, .set-stock-amount {
+.select-save-section, .save-file-section, .sim-btn-section, .set-stock-amount, .buy-sell {
     text-align: center;
 }
 
@@ -157,8 +157,33 @@ body {
     text-align: center;
     width: 40px;
     font-size: 30px;
+    font-family: impact, fantasy;
 }
 
 .minus-stock-btn:hover, .add-stock-btn:hover {
     background-color: #999595;
+}
+
+
+.buy-btn, .sell-btn {
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
+    font-family: impact, fantasy;
+}
+
+.buy-btn {
+    background-color: green;
+}
+
+.sell-btn {
+    background-color: red;
+}
+
+.buy-btn:hover {
+    background-color: darkgreen;
+}
+
+.sell-btn:hover {
+    background-color: darkred;
 }

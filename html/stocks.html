@@ -25,9 +25,9 @@
         <h1 class="large-heading">Stock</h1>
         <h2 class="medium-heading">Amount:</h2>
         <div class="set-stock-amount">
-            <button class="minus-stock-btn">-</button>
-            <p class="text stock-amount">0</p>
-            <button class="add-stock-btn">+</button>
+            <button class="minus-stock-btn" onclick="setAmount(-1)">-</button>
+            <p class="text" id="stock-amount">0</p>
+            <button class="add-stock-btn" onclick="setAmount(1)">+</button>
         </div>
     </main>
     <script src="/index.js"></script>

@@ -1,6 +1,7 @@
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 let saveFile = 0;
 let selectedStock = 0;
+let amount = 0;
 
 let stocks = {
     stock1: {name: "Stock #1"},
@@ -27,15 +28,16 @@ let file = {
 };
 
 function setSaveFile(save) {
-    if (localStorage.length === 0) {
+    if (localStorage.getItem("file1") === null) {
         localStorage.setItem("file1", JSON.stringify(defaultFile));
-        localStorage.setItem("file2", JSON.stringify(defaultFile));
-        localStorage.setItem("file3", JSON.stringify(defaultFile));
-        localStorage.setItem("saveFile", save);
-    } else {
-        localStorage.setItem("saveFile", save);
     }
-    
+    if (localStorage.getItem("file2") === null) {
+        localStorage.setItem("file2", JSON.stringify(defaultFile));
+    }
+    if (localStorage.getItem("file3") === null) {
+        localStorage.setItem("file3", JSON.stringify(defaultFile));
+    }
+    localStorage.setItem("saveFile", save);
 }
 
 function saveGame() {
@@ -125,6 +127,13 @@ function updateScreen() {
             }
              
         }
+    }
+}
+
+function setAmount(increment) {
+    if (amount > 0 || increment === 1) {
+        amount += increment;
+        document.getElementById("stock-amount").innerHTML = amount;
     }
 }
 

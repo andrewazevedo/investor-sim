@@ -72,7 +72,7 @@ body {
     background-color: #344966;
 }
 
-.nav-bar-item, .stock-amount, .stock-amount-btn {
+.nav-bar-item, .stock-amount-btn, #stock-amount {
     display: inline;
 }
 

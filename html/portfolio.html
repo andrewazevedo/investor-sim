@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Simulator</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">Investor Simulator</h1>
+    </header>
+    <nav class="nav-bar">
+        <ul class="nav-bar-list">
+            <li class="nav-bar-item"><a href="/index.html" class="nav-btn">Home</a></li>
+            <li class="nav-bar-item"><a class="nav-btn" onclick="saveGame()">Save</a></li>
+            <li class="nav-bar-item"><a href="/html/main.html" class="nav-btn">Back</a></li>
+        </ul>
+    </nav>
+    <section class="section-header">
+        <ul class="section-header-list"><p class="text balance">Balance</p></ul>
+    </section>
+    <main class="triple-section">
+        <section class="triple-section-col">
+            <ul class="triple-section-list">
+                <li class="triple-section-item"><h1 class="large-heading">Real Estate</h1></li>
+            </ul>
+        </section>
+        <section class="triple-section-col">
+            <ul class="triple-section-list">
+                <li class="triple-section-item"><h1 class="large-heading">Stocks</h1></li>
+                <section class="triple-section">
+                    <section class="triple-section-col stock-section">
+                        <a href="/html/stocks.html" class="stock-btn">Stock #1</a>
+                        <p class="text">Owned:</p>
+                        <p class="text stock-1-amount">0</p>
+                        <p class="text">Buy Price:</p>
+                        <p class="text stock-1-buy-price">0</p>
+                        <p class="text">Current Price:</p>
+                        <p class="text stock-1-price">0</p>
+                    </section>
+                    <section class="triple-section-col stock-section">
+                        <a href="/html/stocks.html" class="stock-btn">Stock #2</a>
+                        <p class="text">Owned:</p>
+                        <p class="text stock-2-amount">0</p>
+                        <p class="text">Buy Price:</p>
+                        <p class="text stock-2-buy-price">0</p>
+                        <p class="text">Current Price:</p>
+                        <p class="text stock-2-price">0</p>
+                    </section>
+                    <section class="triple-section-col stock-section">
+                        <a href="/html/stocks.html" class="stock-btn">Stock #3</a>
+                        <p class="text">Owned:</p>
+                        <p class="text stock-3-amount">0</p>
+                        <p class="text">Buy Price:</p>
+                        <p class="text stock-3-buy-price">0</p>
+                        <p class="text">Current Price:</p>
+                        <p class="text stock-3-price">0</p>
+                    </section>
+                </section>
+            </ul>
+        </section>
+        <section class="triple-section-col">
+            <ul class="triple-section-list">
+                <li class="triple-section-item"><h1 class="large-heading">Businesses</h1></li>
+            </ul>
+        </section>
+    </main>
+    <script src="/index.js"></script>
+</body>
+</html>

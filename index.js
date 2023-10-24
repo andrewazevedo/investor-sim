@@ -9,9 +9,9 @@ let defaultStocks = {
     stock3: {name: "Stock #3", price: 1000, change: "+0"}
 }
 let stocks = {
-    stock1: {name: "Stock #1", price: 10},
-    stock2: {name: "Stock #2", price: 30},
-    stock3: {name: "Stock #3", price: 1000}
+    stock1: {name: "Stock #1", price: 10, change: "+0"},
+    stock2: {name: "Stock #2", price: 30, change: "+0"},
+    stock3: {name: "Stock #3", price: 1000, change: "+0"}
 }
 
 let defaultFile = {
@@ -20,7 +20,11 @@ let defaultFile = {
     month: 0,
     year: 2023,
     age: 18, 
-    stocks: {stock1: 0, stock2: 0, stock3: 0}
+    stocks: {
+        stock1: {owned: 0, buyPrice: 0},
+        stock2: {owned: 0, buyPrice: 0}, 
+        stock3: {owned: 0, buyPrice: 0}
+    }
 }
 
 let file = {
@@ -141,11 +145,11 @@ function updateScreen() {
         let elements = document.getElementsByClassName("owned-stock");
         for (let i = 0; i < elements.length; i++) {
             if (selectedStock === 1) {
-                elements[i].innerHTML = "Owned: " + file.stocks.stock1;
+                elements[i].innerHTML = "Owned: " + file.stocks.stock1.owned;
             } else if (selectedStock === 2) {
-                elements[i].innerHTML = "Owned: " + file.stocks.stock2;
+                elements[i].innerHTML = "Owned: " + file.stocks.stock2.owned;
             } else if (selectedStock === 3) {
-                elements[i].innerHTML = "Owned: " + file.stocks.stock3;
+                elements[i].innerHTML = "Owned: " + file.stocks.stock3.owned;
             }
 
         }
@@ -165,37 +169,73 @@ function updateScreen() {
     if (document.getElementsByClassName("stock-1-amount")) {
         let elements = document.getElementsByClassName("stock-1-amount");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = "Stock #1: " + file.stocks.stock1;
+            elements[i].innerHTML = file.stocks.stock1.owned;
         }
     }
     if (document.getElementsByClassName("stock-2-amount")) {
         let elements = document.getElementsByClassName("stock-2-amount");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = "Stock #2: " + file.stocks.stock2;
+            elements[i].innerHTML = file.stocks.stock2.owned;
         }
     }
     if (document.getElementsByClassName("stock-3-amount")) {
         let elements = document.getElementsByClassName("stock-3-amount");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = "Stock #3: " + file.stocks.stock3;
+            elements[i].innerHTML = file.stocks.stock3.owned;
         }
     }
     if (document.getElementsByClassName("stock-1-price")) {
         let elements = document.getElementsByClassName("stock-1-price");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = "Stock #1: $" + stocks.stock1.price + " " + stocks.stock1.change;
+            elements[i].innerHTML = "$" + stocks.stock1.price;
         }
     }
     if (document.getElementsByClassName("stock-2-price")) {
         let elements = document.getElementsByClassName("stock-2-price");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = "Stock #2: $" + stocks.stock2.price + " " + stocks.stock2.change;
+            elements[i].innerHTML = "$" + stocks.stock2.price;
         }
     }
     if (document.getElementsByClassName("stock-3-price")) {
         let elements = document.getElementsByClassName("stock-3-price");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = "Stock #3: $" + stocks.stock3.price + " " + stocks.stock3.change;
+            elements[i].innerHTML = "$" + stocks.stock3.price;
+        }
+    }
+    if (document.getElementsByClassName("stock-1-buy-price")) {
+        let elements = document.getElementsByClassName("stock-1-buy-price");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = file.stocks.stock1.buyPrice;
+        }
+    }
+    if (document.getElementsByClassName("stock-2-buy-price")) {
+        let elements = document.getElementsByClassName("stock-2-buy-price");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = file.stocks.stock2.buyPrice;
+        }
+    }
+    if (document.getElementsByClassName("stock-3-buy-price")) {
+        let elements = document.getElementsByClassName("stock-3-buy-price");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = file.stocks.stock3.buyPrice;
+        }
+    }
+    if (document.getElementsByClassName("stock-1-change")) {
+        let elements = document.getElementsByClassName("stock-1-change");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = stocks.stock1.change;
+        }
+    }
+    if (document.getElementsByClassName("stock-2-change")) {
+        let elements = document.getElementsByClassName("stock-2-change");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = stocks.stock2.change;
+        }
+    }
+    if (document.getElementsByClassName("stock-3-change")) {
+        let elements = document.getElementsByClassName("stock-3-change");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = stocks.stock3.change;
         }
     }
     if (document.getElementById("stock-amount")) {
@@ -218,21 +258,24 @@ function selectStock(stock) {
 function buyStock() {
     let selectedStock = JSON.parse(localStorage.getItem("selectedStock"));
     if (selectedStock === 1) {
-        if (amount * stocks.stock1.price < file.balance) {
-            file.stocks.stock1 += amount;
+        if (amount * stocks.stock1.price <= file.balance) {
+            file.stocks.stock1.owned += amount;
             file.balance -= amount * stocks.stock1.price;
+            file.stocks.stock1.buyPrice = stocks.stock1.price;
             amount = 0;
         }
     } else if (selectedStock === 2) {
-        if(amount * stocks.stock2.price < file.balance) {
-            file.stocks.stock2 += amount;
+        if(amount * stocks.stock2.price <= file.balance) {
+            file.stocks.stock2.owned += amount;
             file.balance -= amount * stocks.stock2.price;
+            file.stocks.stock2.buyPrice = stocks.stock2.price;
             amount = 0;
         }
     } else if (selectedStock === 3) {
-        if(amount * stocks.stock3.price < file.balance) {
-            file.stocks.stock3 += amount;
+        if(amount * stocks.stock3.price <= file.balance) {
+            file.stocks.stock3.owned += amount;
             file.balance -= amount * stocks.stock3.price;
+            file.stocks.stock3.buyPrice = stocks.stock3.price;
             amount = 0;
         }
     }
@@ -243,20 +286,20 @@ function buyStock() {
 function sellStock() {
     let selectedStock = JSON.parse(localStorage.getItem("selectedStock"));
     if (selectedStock === 1) {
-        if (amount <= file.stocks.stock1) {
-            file.stocks.stock1 -= amount;
+        if (amount <= file.stocks.stock1.owned) {
+            file.stocks.stock1.owned -= amount;
             file.balance += amount * stocks.stock1.price;
             amount = 0;
         }
     } else if (selectedStock === 2) {
-        if (amount <= file.stocks.stock2) {
-            file.stocks.stock2 -= amount;
+        if (amount <= file.stocks.stock2.owned) {
+            file.stocks.stock2.owned -= amount;
             file.balance += amount * stocks.stock2.price;
             amount = 0;
         }
     } else if (selectedStock === 3) {
-        if (amount <= file.stocks.stock3) {
-            file.stocks.stock3 -= amount;
+        if (amount <= file.stocks.stock3.owned) {
+            file.stocks.stock3.owned -= amount;
             file.balance += amount * stocks.stock3.price;
             amount = 0;
         }
@@ -279,6 +322,9 @@ function changeStockPrice() {
         if (stocks.stock1.price - priceChangeAmount1 > 0) {
             stocks.stock1.change = "-" + priceChangeAmount1;
             stocks.stock1.price -= priceChangeAmount1;
+        } else {
+            stocks.stock1.change = "-" + stocks.stock1.price;
+            stocks.stock1.price = 0;
         }
     }
     if (priceChange2 === 1) {
@@ -288,6 +334,9 @@ function changeStockPrice() {
         if (stocks.stock2.price - priceChangeAmount2 > 0) {
             stocks.stock2.change = "-" + priceChangeAmount2;
             stocks.stock2.price -= priceChangeAmount2;
+        } else {
+            stocks.stock2.change = "-" + stocks.stock2.price;
+            stocks.stock2.price = 0;
         }
     }
     if (priceChange3 === 1) {
@@ -297,6 +346,9 @@ function changeStockPrice() {
         if (stocks.stock3.price - priceChangeAmount3 > 0) {
             stocks.stock3.change = "-" + priceChangeAmount3;
             stocks.stock3.price -= priceChangeAmount3;
+        } else {
+            stocks.stock3.change = "-" + stocks.stock3.price;
+            stocks.stock3.price = 0;
         }
     }
     saveGame();

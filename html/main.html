@@ -14,7 +14,7 @@
     <nav class="nav-bar">
         <ul class="nav-bar-list">
             <li class="nav-bar-item"><a href="/index.html" class="nav-btn">Home</a></li>
-            <li class="nav-bar-item"><a class="nav-btn">Save</a></li>
+            <li class="nav-bar-item"><a class="nav-btn" onclick="saveGame()">Save</a></li>
         </ul>
     </nav>
 
@@ -29,9 +29,23 @@
             <ul class="triple-section-list">
                 <li class="triple-section-item"><h1 class="large-heading">Market</h1></li>
                 <li class="triple-section-item"><a href="/html/market.html" class="market-btn">Invest</a></li>
-                <li class="triple-section-item"><p class="text stock-1-price">Stock #1:</p></li>
-                <li class="triple-section-item"><p class="text stock-2-price">Stock #2:</p></li>
-                <li class="triple-section-item"><p class="text stock-3-price">Stock #3:</p></li>
+                <table class="market-stock-table">
+                    <tr>
+                        <td><p class="text">Stock #1</p></td>
+                        <td><p class="text stock-1-price">0</p></td>
+                        <td><p class="text stock-1-change">+0</p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="text">Stock #2</p></td>
+                        <td><p class="text stock-2-price">0</p></td>
+                        <td><p class="text stock-2-change">+0</p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="text">Stock #3</p></td>
+                        <td><p class="text stock-3-price">0</p></td>
+                        <td><p class="text stock-3-change">+0</p></td>
+                    </tr>
+                </table>
             </ul>
         </section>
         <section class="triple-section-col">
@@ -45,10 +59,21 @@
         <section class="triple-section-col">
             <ul class="triple-section-list">
                 <li class="triple-section-item"><h1 class="large-heading">Portfolio</h1></li>
-                <li class="section-list-item"><a href="" class="portfolio-btn">View Portfolio</a></li>
-                <li class="section-list-item"><p class="text stock-1-amount">Stock #1:</p></li>
-                <li class="section-list-item"><p class="text stock-2-amount">Stock #2:</p></li>
-                <li class="section-list-item"><p class="text stock-3-amount">Stock #3:</p></li>
+                <li class="section-list-item"><a href="/html/portfolio.html" class="portfolio-btn">View Portfolio</a></li>
+                <table class="portfolio-stock-table">
+                    <tr>
+                        <td><p class="text">Stock #1:</p></td>
+                        <td><p class="text stock-1-amount">0</p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="text">Stock #2:</p></td>
+                        <td><p class="text stock-2-amount">0</p></td>
+                    </tr>
+                    <tr>
+                        <td><p class="text">Stock #3:</p></td>
+                        <td><p class="text stock-3-amount">0</p></td>
+                    </tr>
+                </table>
             </ul>
         </section>
     </main>

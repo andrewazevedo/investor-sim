@@ -29,6 +29,7 @@ body {
     font-size: 50px;
     margin: 10px;
     padding: 0;
+    text-decoration: underline #DBD4D3;
 }
 
 .medium-heading {
@@ -37,6 +38,7 @@ body {
     font-size: 30px;
     margin: 10px;
     padding: 0;
+    text-decoration: underline #DBD4D3;
 }
 
 .section-header {
@@ -57,6 +59,11 @@ body {
     font-size: 25px;
     margin: 0;
     padding: 0;
+}
+
+.portfolio-stock-table, .market-stock-table {
+    margin: 0 auto;
+    text-align: center;
 }
 
 .nav-bar {
@@ -99,6 +106,10 @@ body {
     padding: 0;
 }
 
+.stock-section {
+    margin: 0;
+    padding: 0;
+}
 .select-save-btn, .load-save-btn, .delete-save-btn, .back-btn, .market-btn, .bank-btn, .portfolio-btn, .stock-btn {
     color: #344966;
     font-size: 50px;

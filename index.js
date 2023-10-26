@@ -8,6 +8,7 @@ let defaultStocks = {
     stock2: {name: "Stock #2", price: 30, change: "+0"},
     stock3: {name: "Stock #3", price: 1000, change: "+0"}
 }
+
 let stocks = {
     stock1: {name: "Stock #1", price: 10, change: "+0"},
     stock2: {name: "Stock #2", price: 30, change: "+0"},
@@ -21,9 +22,9 @@ let defaultFile = {
     year: 2023,
     age: 18, 
     stocks: {
-        stock1: {owned: 0, buyPrice: 0},
-        stock2: {owned: 0, buyPrice: 0}, 
-        stock3: {owned: 0, buyPrice: 0}
+        stock1: {owned: 0, totalSpent: 0, roi: "+0"},
+        stock2: {owned: 0, totalSpent: 0, roi: "+0"}, 
+        stock3: {owned: 0, totalSpent: 0, roi: "+0"}
     }
 }
 
@@ -202,22 +203,22 @@ function updateScreen() {
             elements[i].innerHTML = "$" + stocks.stock3.price;
         }
     }
-    if (document.getElementsByClassName("stock-1-buy-price")) {
-        let elements = document.getElementsByClassName("stock-1-buy-price");
+    if (document.getElementsByClassName("ROI-1")) {
+        let elements = document.getElementsByClassName("ROI-1");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = file.stocks.stock1.buyPrice;
+            elements[i].innerHTML = file.stocks.stock1.roi;
         }
     }
-    if (document.getElementsByClassName("stock-2-buy-price")) {
-        let elements = document.getElementsByClassName("stock-2-buy-price");
+    if (document.getElementsByClassName("ROI-2")) {
+        let elements = document.getElementsByClassName("ROI-2");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = file.stocks.stock2.buyPrice;
+            elements[i].innerHTML = file.stocks.stock2.roi;
         }
     }
-    if (document.getElementsByClassName("stock-3-buy-price")) {
-        let elements = document.getElementsByClassName("stock-3-buy-price");
+    if (document.getElementsByClassName("ROI-3")) {
+        let elements = document.getElementsByClassName("ROI-3");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = file.stocks.stock3.buyPrice;
+            elements[i].innerHTML = file.stocks.stock3.roi;
         }
     }
     if (document.getElementsByClassName("stock-1-change")) {
@@ -288,21 +289,21 @@ function buyStock() {
         if (amount * stocks.stock1.price <= file.balance) {
             file.stocks.stock1.owned += amount;
             file.balance -= amount * stocks.stock1.price;
-            file.stocks.stock1.buyPrice = stocks.stock1.price;
+            file.stocks.stock1.totalSpent += amount * stocks.stock1.price;
             amount = 0;
         }
     } else if (selectedStock === 2) {
         if(amount * stocks.stock2.price <= file.balance) {
             file.stocks.stock2.owned += amount;
             file.balance -= amount * stocks.stock2.price;
-            file.stocks.stock2.buyPrice = stocks.stock2.price;
+            file.stocks.stock2.totalSpent += amount * stocks.stock2.price;
             amount = 0;
         }
     } else if (selectedStock === 3) {
         if(amount * stocks.stock3.price <= file.balance) {
             file.stocks.stock3.owned += amount;
             file.balance -= amount * stocks.stock3.price;
-            file.stocks.stock3.buyPrice = stocks.stock3.price;
+            file.stocks.stock3.totalSpent += amount * stocks.stock3.price;
             amount = 0;
         }
     }
@@ -377,6 +378,40 @@ function changeStockPrice() {
             stocks.stock3.change = "-" + stocks.stock3.price;
             stocks.stock3.price = 0;
         }
+    }
+    let roi1;
+    let roi2;
+    let roi3;
+
+    if (file.stocks.stock1.totalSpent > 0) {
+        roi1 = ((((file.stocks.stock1.owned) * (stocks.stock1.price)) - file.stocks.stock1.totalSpent) / file.stocks.stock1.totalSpent) * 100;
+    } else {
+        roi1 = 0;
+    }
+    if (file.stocks.stock2.totalSpent > 0) {
+        roi2 = ((((file.stocks.stock2.owned) * (stocks.stock2.price)) - file.stocks.stock2.totalSpent) / file.stocks.stock2.totalSpent) * 100;
+    } else {
+        roi2 = 0;
+    }
+    if (file.stocks.stock3.totalSpent > 0) {
+        roi3 = ((((file.stocks.stock3.owned) * (stocks.stock3.price)) - file.stocks.stock3.totalSpent) / file.stocks.stock3.totalSpent) * 100;
+    } else {
+        roi3 = 0;
+    }
+    if (roi1 >= 0) {
+        file.stocks.stock1.roi = "+" + roi1 + "%"
+    } else {
+        file.stocks.stock1.roi = roi1 + "%"
+    }
+    if (roi2 >= 0) {
+        file.stocks.stock2.roi = "+" + roi2 + "%"
+    } else {
+        file.stocks.stock2.roi = roi2 + "%"
+    }
+    if (roi3 >= 0) {
+        file.stocks.stock3.roi = "+" + roi3 + "%"
+    } else {
+        file.stocks.stock3.roi = roi3 + "%"
     }
     saveGame();
 }

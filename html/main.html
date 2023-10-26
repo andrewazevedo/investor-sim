@@ -9,75 +9,74 @@
 </head>
 <body>
     <header>
-        <h1 class="title">Investor Simulator</h1>
+        <h1 class="game-title">Investor Simulator</h1>
     </header>
-    <nav class="nav-bar">
-        <ul class="nav-bar-list">
-            <li class="nav-bar-item"><a href="/index.html" class="nav-btn">Home</a></li>
-            <li class="nav-bar-item"><a class="nav-btn" onclick="saveGame()">Save</a></li>
+    <hr class="game-title-divider">
+    <nav class="top-nav-bar">
+            <a href="/index.html" class="top-nav-btn">Home</a>
+            <a class="top-nav-btn" onclick="saveGame()">Save</a>
         </ul>
     </nav>
-
-    <section class="section-header">
-        <ul class="section-header-list">
-            <li class="section-header-item"><p class="text date">Date</p></li>
-            <li class="section-header-item"><p class="text age">Age</p></li>
-        </ul>
+    <section class="top-section">
+        <h2 class="date">Date</h2>
+        <h2 class="age">Age</h2>
     </section>
     <main class="triple-section">
         <section class="triple-section-col">
-            <ul class="triple-section-list">
-                <li class="triple-section-item"><h1 class="large-heading">Market</h1></li>
-                <li class="triple-section-item"><a href="/html/market.html" class="market-btn">Invest</a></li>
-                <table class="market-stock-table">
-                    <tr>
-                        <td><p class="text">Stock #1</p></td>
-                        <td><p class="text stock-1-price">0</p></td>
-                        <td><p class="text stock-1-change">+0</p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="text">Stock #2</p></td>
-                        <td><p class="text stock-2-price">0</p></td>
-                        <td><p class="text stock-2-change">+0</p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="text">Stock #3</p></td>
-                        <td><p class="text stock-3-price">0</p></td>
-                        <td><p class="text stock-3-change">+0</p></td>
-                    </tr>
-                </table>
-            </ul>
+            <h1>Market</h1>
+            <a href="/html/market.html" class="button2">Invest</a>
+            <table class="market-stock-table">
+                <tr>
+                    <td><h3>Stock #1<h3></td>
+                    <td><p class="stock-1-price">0</p></td>
+                    <td><p class="stock-1-change">+0</p></td>
+                </tr>
+                <tr>
+                    <td><h3>Stock #2</h3></td>
+                    <td><p class="stock-2-price">0</p></td>
+                    <td><p class="stock-2-change">+0</p></td>
+                </tr>
+                <tr>
+                    <td><h3>Stock #3</h3></td>
+                    <td><p class="text stock-3-price">0</p></td>
+                    <td><p class="text stock-3-change">+0</p></td>
+                </tr>
+            </table>
         </section>
         <section class="triple-section-col">
-            <ul class="triple-section-list">
-                <li class="triple-section-item"><h1 class="large-heading">Bank</h1></li>
-                <li class="triple-section-item"><a href="" class="bank-btn">Manage Account</a></li>
-                <li class="section-list-item"><p class="text balance">Balance</p></li>
-                <li class="section-list-item"><p class="text salary">Salary</p></li>
-            </ul>
+            <h1>Bank</h1>
+            <a href="" class="button2">Manage Account</a>
+            <table class="bank-table">
+                <tr>
+                    <td><h3>Balance:</h3></td>
+                    <td><p class="balance">Balance</p</td>
+                </tr>
+                <tr>
+                    <td><h3>Monthly Salary:</h3></td>
+                    <td><p class="salary">Salary</p></td>
+                </tr>
+            </table>
         </section>
         <section class="triple-section-col">
-            <ul class="triple-section-list">
-                <li class="triple-section-item"><h1 class="large-heading">Portfolio</h1></li>
-                <li class="section-list-item"><a href="/html/portfolio.html" class="portfolio-btn">View Portfolio</a></li>
-                <table class="portfolio-stock-table">
-                    <tr>
-                        <td><p class="text">Stock #1:</p></td>
-                        <td><p class="text stock-1-amount">0</p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="text">Stock #2:</p></td>
-                        <td><p class="text stock-2-amount">0</p></td>
-                    </tr>
-                    <tr>
-                        <td><p class="text">Stock #3:</p></td>
-                        <td><p class="text stock-3-amount">0</p></td>
-                    </tr>
-                </table>
-            </ul>
+            <h1>Portfolio</h1>
+            <a href="/html/portfolio.html" class="button2">View Portfolio</a>
+            <table class="portfolio-stock-table">
+                <tr>
+                    <td><h3>Stock #1:</h3></td>
+                    <td><p class="stock-1-amount">0</p></td>
+                </tr>
+                <tr>
+                    <td><h3>Stock #2:</h3></td>
+                    <td><p class="stock-2-amount">0</p></td>
+                </tr>
+                <tr>
+                    <td><h3>Stock #3:</h3></td>
+                    <td><p class="stock-3-amount">0</p></td>
+                </tr>
+            </table>
         </section>
     </main>
-    <section class="sim-btn-section">
+    <section class="bottom-section">
         <button class="sim-btn" onclick="simulate()">Simulate</button>
     </section>
     <script src="/index.js"></script>

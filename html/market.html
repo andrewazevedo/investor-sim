@@ -9,36 +9,33 @@
 </head>
 <body>
     <header>
-        <h1 class="title">Investor Simulator</h1>
+        <h1 class="game-title">Investor Simulator</h1>
     </header>
-    <nav class="nav-bar">
-        <ul class="nav-bar-list">
-            <li class="nav-bar-item"><a href="/index.html" class="nav-btn">Home</a></li>
-            <li class="nav-bar-item"><a class="nav-btn" onclick="saveGame()">Save</a></li>
-            <li class="nav-bar-item"><a href="/html/main.html" class="nav-btn">Back</a></li>
+    <hr class="game-title-divider">
+    <nav class="top-nav-bar">
+            <a href="/index.html" class="top-nav-btn">Home</a>
+            <a class="top-nav-btn" onclick="saveGame()">Save</a>
+            <a href="/html/main.html" class="top-nav-btn">Back</a>
         </ul>
     </nav>
-    <section class="section-header">
-        <ul class="section-header-list"><p class="text balance">Balance</p></ul>
+    <section class="top-section">
+        <h2 class="balance">Balance</h2>
     </section>
     <main class="triple-section">
         <section class="triple-section-col">
-            <ul class="triple-section-list">
-                <li class="triple-section-item"><h1 class="large-heading">Real Estate</h1></li>
-            </ul>
+            <h1>Real Estate</h1>
         </section>
         <section class="triple-section-col">
-            <ul class="triple-section-list">
-                <li class="triple-section-item"><h1 class="large-heading">Stocks</h1></li>
-                <li class="triple-sectionpitem"><a href="/html/stocks.html" class="stock-btn" onclick="selectStock(1)">Stock #1</a></li>
-                <li class="triple-sectionpitem"><a href="/html/stocks.html" class="stock-btn" onclick="selectStock(2)">Stock #2</a></li>
-                <li class="triple-sectionpitem"><a href="/html/stocks.html" class="stock-btn" onclick="selectStock(3)">Stock #3</a></li>
-            </ul>
+            <h1>Stocks</h1>
+            <a href="/html/stocks.html" class="button3" onclick="selectStock(1)">Stock #1</a>
+            <div></div>
+            <a href="/html/stocks.html" class="button3" onclick="selectStock(2)">Stock #2</a>
+            <div></div>
+            <a href="/html/stocks.html" class="button3" onclick="selectStock(3)">Stock #3</a>
+            <div></div>
         </section>
         <section class="triple-section-col">
-            <ul class="triple-section-list">
-                <li class="triple-section-item"><h1 class="large-heading">Businesses</h1></li>
-            </ul>
+            <h1 class="large-heading">Businesses</h1>
         </section>
     </main>
     <script src="/index.js"></script>

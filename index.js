@@ -113,7 +113,7 @@ function updateScreen() {
     if (document.getElementsByClassName("balance")) {
         let elements = document.getElementsByClassName("balance");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = "Balance: $" + file.balance;
+            elements[i].innerHTML = "$" + file.balance;
         }
     }
     if (document.getElementsByClassName("age")) {
@@ -125,7 +125,7 @@ function updateScreen() {
     if (document.getElementsByClassName("salary")) {
         let elements = document.getElementsByClassName("salary");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].innerHTML = "Monthly Salary: $" + file.salary;
+            elements[i].innerHTML = "$" + file.salary;
         }
     }
     if (document.getElementsByClassName("stock-title")) {
@@ -145,11 +145,11 @@ function updateScreen() {
         let elements = document.getElementsByClassName("owned-stock");
         for (let i = 0; i < elements.length; i++) {
             if (selectedStock === 1) {
-                elements[i].innerHTML = "Owned: " + file.stocks.stock1.owned;
+                elements[i].innerHTML = file.stocks.stock1.owned;
             } else if (selectedStock === 2) {
-                elements[i].innerHTML = "Owned: " + file.stocks.stock2.owned;
+                elements[i].innerHTML = file.stocks.stock2.owned;
             } else if (selectedStock === 3) {
-                elements[i].innerHTML = "Owned: " + file.stocks.stock3.owned;
+                elements[i].innerHTML = file.stocks.stock3.owned;
             }
 
         }
@@ -158,11 +158,11 @@ function updateScreen() {
         let elements = document.getElementsByClassName("stock-price") 
         for (let i = 0; i < elements.length; i++) {
             if (selectedStock === 1) {
-                elements[i].innerHTML = "Price: " + stocks.stock1.price;
+                elements[i].innerHTML = stocks.stock1.price;
             } else if (selectedStock === 2) {
-                elements[i].innerHTML = "Price: " + stocks.stock2.price;
+                elements[i].innerHTML = stocks.stock2.price;
             } else if (selectedStock === 3) {
-                elements[i].innerHTML = "Price: " + stocks.stock3.price;
+                elements[i].innerHTML = stocks.stock3.price;
             }
         }
     }

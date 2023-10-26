@@ -3,87 +3,66 @@ body {
     font-family: impact, fantasy;
 }
 
-.text {
+h1 {
     color: #912F40;
-    font-size: 25px;
-    margin: 5px;
+    font-size: 50px;
+    margin: 10px;
     padding: 0;
-}
-.title {
-    color: #912F40;
     text-align: center;
-    font-size: 70px;
-    padding: 0;
-    margin: 0;
     text-decoration: underline #DBD4D3;
 }
 
-.title-divider {
+h2 {
+    color: #912F40;
+    font-size: 40px;
+    margin: 10px;
+    padding: 0;
+    text-align: center;
+}
+
+h3 {
+    color: #912F40;
+    font-size: 30px;
+    margin: 10px;
+    padding: 0;
+    text-align: center;
+}
+p {
+    color: #DBD4D3;
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.game-title {
+    color: #912F40;
+    font-size: 70px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    text-decoration: underline #DBD4D3;
+}
+
+.game-title-divider {
     background-color: #DBD4D3; 
     height: 5px;
 }
 
-.large-heading {
-    color: #912F40;
-    text-align: center;
-    font-size: 50px;
-    margin: 10px;
-    padding: 0;
-    text-decoration: underline #DBD4D3;
-}
-
-.medium-heading {
-    color: #912F40;
-    text-align: center;
-    font-size: 30px;
-    margin: 10px;
-    padding: 0;
-    text-decoration: underline #DBD4D3;
-}
-
-.section-header {
-    border: 5px solid #DBD4D3;
-    margin: 10px;
-    padding: 0;
-}
-
-.section-header-list {
-    text-align: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.section-header-item {
-    color: #912F40;
-    font-size: 25px;
-    margin: 0;
-    padding: 0;
-}
-
-.portfolio-stock-table, .market-stock-table {
-    margin: 0 auto;
+.select-save-section, .save-file-section, .bottom-section, .buy-sell-stocks, .add-stocks, .subtract-stocks, .buy-sell-max, .clear-stocks {
     text-align: center;
 }
 
-.nav-bar {
-    border: 5px solid #DBD4D3;
-    margin: 10px;
-}
-
-.nav-bar-list {
-    text-align: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.top-nav-bar {
     background-color: #344966;
+    border: 5px solid #DBD4D3;
+    margin: 10px;
+    text-align: center;
 }
 
-.nav-bar-item, .stock-amount-btn, #stock-amount {
-    display: inline;
-}
-
-.select-save-section, .save-file-section, .sim-btn-section, .set-stock-amount, .buy-sell {
+.top-section {
+    border: 5px solid #DBD4D3;
+    margin: 10px;
+    padding: 0;
     text-align: center;
 }
 
@@ -98,30 +77,40 @@ body {
     text-align: center;
     border: 5px solid #DBD4D3;
 }
+.date, .age {
+    display: inline-block;
+    padding: 0 20px;
+}
 
-.triple-section-list {
+.stock-table, .market-stock-table, .portfolio-stock-table, .bank-table {
+    margin: 0 auto;
     text-align: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 
-.stock-section {
-    margin: 0;
-    padding: 0;
-}
-.select-save-btn, .load-save-btn, .delete-save-btn, .back-btn, .market-btn, .bank-btn, .portfolio-btn, .stock-btn {
+.button1 {
     color: #344966;
     font-size: 50px;
     text-decoration: none;
 }
 
-.select-save-btn:hover, .load-save-btn:hover, .delete-save-btn:hover, .back-btn:hover, .market-btn:hover, .bank-btn:hover, .portfolio-btn:hover, .stock-btn:hover {
+.button2 {
+    color: #344966;
+    font-size: 35px;
+    text-decoration: none;
+}
+
+.button3 {
+    color: #344966;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.button1:hover, .button2:hover, .button3:hover {
     color: #18283f;
     cursor: pointer;
 }
 
-.nav-btn {
+.top-nav-btn {
     color: #DBD4D3;
     text-decoration: none;
     font-size: 25px;
@@ -129,16 +118,9 @@ body {
     padding: 15px 15px;
 }
 
-.nav-btn:hover {
+.top-nav-btn:hover {
     color: #999595;
     cursor: pointer;
-}
-
-.market-btn, .bank-btn, .portfolio-btn, .stock-btn {
-    font-size: 30px;
-    text-align: center;
-    margin: 0;
-    padding: 0;
 }
 
 .sim-btn {
@@ -147,7 +129,8 @@ body {
     background-color: #344966;
     border: 3px solid #912F40;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: impact, fantasy;
     margin: 0;
     padding: 3px;
 }
@@ -155,46 +138,43 @@ body {
 .sim-btn:hover {
     color: #999595;
     background-color: #18283f;
+    text-align: center;
     cursor: pointer;
 }
 
+.buy-sell-btn {
+    font-size: 30px;
+    font-family: impact, fantasy;
+    border: 3px solid #DBD4D3;
+}
+
 .stock-amount {
-    font-size: 30px;
+    font-size: 50px;
 }
 
-.minus-stock-btn, .add-stock-btn {
+.add-stock-btn, .subtract-stock-btn, .clear-btn {
     background-color: #DBD4D3;
-    display: inline-block;
-    text-align: center;
-    width: 40px;
-    font-size: 30px;
-    font-family: impact, fantasy;
+    font-size: 20px;
+    margin: 3px;
+    padding: 5px;
 }
 
-.minus-stock-btn:hover, .add-stock-btn:hover {
-    background-color: #999595;
-}
-
-
-.buy-btn, .sell-btn {
-    margin: 10px;
-    padding: 10px;
-    font-size: 30px;
-    font-family: impact, fantasy;
-}
-
-.buy-btn {
+.buy {
     background-color: green;
 }
 
-.sell-btn {
-    background-color: red;
-}
-
-.buy-btn:hover {
+.buy:hover {
     background-color: darkgreen;
 }
 
-.sell-btn:hover {
+.sell {
+    background-color: red;
+}
+
+.sell:hover {
     background-color: darkred;
+}
+
+.add-stock-btn:hover, .subtract-stock-btn:hover, .clear-btn:hover {
+    background-color: #999595;
 }

@@ -238,16 +238,43 @@ function updateScreen() {
             elements[i].innerHTML = stocks.stock3.change;
         }
     }
-    if (document.getElementById("stock-amount")) {
-        document.getElementById("stock-amount").innerHTML = amount;
+    if (document.getElementsByClassName("stock-amount")) {
+        let elements = document.getElementsByClassName("stock-amount");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = amount;
+        }
     }
 }
 
 function setAmount(increment) {
-    if (amount > 0 || increment === 1) {
+    if (increment > 0) {
         amount += increment;
-        document.getElementById("stock-amount").innerHTML = amount;
+    } else if (amount + increment >= 0) {
+        amount += increment;
     }
+    updateScreen();
+}
+
+function setMaxAmount(action) {
+    let stock = JSON.parse(localStorage.getItem("selectedStock"));
+    if (action > 0) {
+        if (stock === 1) {
+            amount = Math.floor(file.balance / stocks.stock1.price);
+        } else if (stock === 2) {
+            amount = Math.floor(file.balance / stocks.stock2.price);
+        } else if (stock === 3) {
+            amount = Math.floor(file.balance / stocks.stock3.price);
+        }
+    } else {
+        if (stock === 1) {
+            amount = Math.floor(file.stocks.stock1.owned);
+        } else if (stock === 2) {
+            amount = Math.floor(file.stocks.stock1.owned);
+        } else if (stock === 3) {
+            amount = Math.floor(file.stocks.stock1.owned);
+        }
+    }
+    updateScreen();
 }
 
 function selectStock(stock) {

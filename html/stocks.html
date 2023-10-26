@@ -39,20 +39,20 @@
         </div>
         <div class="add-stocks">
             <p class="stock-amount">0</p>
-            <button class="add-stock-btn">+1</button>
-            <button class="add-stock-btn">+5</button>
-            <button class="add-stock-btn">+10</button>
-            <button class="add-stock-btn">+100</button>
+            <button class="add-stock-btn" onclick="setAmount(1)">+1</button>
+            <button class="add-stock-btn" onclick="setAmount(5)">+5</button>
+            <button class="add-stock-btn" onclick="setAmount(10)">+10</button>
+            <button class="add-stock-btn" onclick="setAmount(100)">+100</button>
         </div>
         <div class="buy-sell-max">
-            <button class="add-stock-btn">Buy Max</button>
-            <button class="add-stock-btn">Sell Max</button>
+            <button class="add-stock-btn" onclick="setMaxAmount(1)">Buy Max</button>
+            <button class="add-stock-btn" onclick="setMaxAmount(-1)">Sell Max</button>
         </div>
         <div class="subtract-stocks">
-            <button class="subtract-stock-btn">-1</button>
-            <button class="subtract-stock-btn">-5</button>
-            <button class="subtract-stock-btn">-10</button>
-            <button class="subtract-stock-btn">-100</button>
+            <button class="subtract-stock-btn" onclick="setAmount(-1)">-1</button>
+            <button class="subtract-stock-btn" onclick="setAmount(-5)">-5</button>
+            <button class="subtract-stock-btn" onclick="setAmount(-10)">-10</button>
+            <button class="subtract-stock-btn" onclick="setAmount(-100)">-100</button>
         </div>
         <div class="clear-stocks">
             <button class="clear-btn">Clear</button>
